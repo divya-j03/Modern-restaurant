@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <title>MODERN RESTAURANT</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+    }
+
+    html {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        width: 100%;
+        height: 100vh;
+        background: #dedede;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header {
+        position: relative;
+        width: 58%;
+        height: 75%;
+        background: #fff;
+        box-shadow: 0px 0px 50px -1px rgb(0, 0, 0, .5);
+        padding: 0px 30px;
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        transition: 1s linear;
+    }
+
+    header .logo {
+        position: absolute;
+        top: 0;
+        left: 10%;
+        width: 250px;
+        height: 350px;
+        background: #282828;
+        transition: 1s linear;
+    }
+
+    header .logo h1 {
+        color: #fff;
+        text-align: center;
+        margin-top: 5px;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    header .logo img {
+        width: 270px;
+        margin: 20px 0px 0px -30px;
+        filter: drop-shadow(0px 0px 30px rgb(0, 0, 0, .7));
+    }
+
+    header nav {
+        width: 100%;
+        height: 10%;
+        /*border: 1px solid #000;*/
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    header nav .menu {
+        font-size: 25px;
+        color: #000;
+    }
+
+    header nav .right_menu {
+        display: flex;
+        align-items: center;
+    }
+
+    header nav .right_menu ul {
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+    }
+
+    header nav .right_menu ul li {
+        padding: 3px 10px;
+    }
+
+    header nav .right_menu ul li a {
+        position: relative;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 600;
+        color: #000;
+        transition: .3s linear;
+    }
+
+    header nav .right_menu ul li a::before {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #dc1313;
+        border-radius: 50%;
+        bottom: -5px;
+        left: 45%;
+        opacity: 0;
+        transition: .3s linear;
+    }
+
+    header nav .right_menu ul li a:hover {
+        color: #dc1313;
+    }
+
+    header nav .right_menu ul li a:hover::before {
+        opacity: 1;
+    }
+
+    header nav .right_menu .user_cart {
+        margin-left: 50px;
+        display: flex;
+        align-items: center;
+    }
+
+    header nav .right_menu .user_cart .user {
+        position: relative;
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        margin-left: 10px;
+    }
+
+    header nav .right_menu .user_cart .user img {
+        width: 100%;
+    }
+
+    header nav .right_menu .user_cart .user::before {
+        content: '';
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: #dc1313;
+        border-radius: 50%;
+        top: 0;
+        right: 0;
+        z-index: 9999;
+    }
+
+    header .left_menu {
+        width: 20px;
+        height: 90%;
+        /*border: 1px solid red;*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    header .left_menu a {
+        margin: 30px 0px;
+        padding: 0px 5px;
+        text-decoration: none;
+        font-size: 10px;
+        color: #000;
+        font-weight: 600;
+        transition: .3s linear;
+        transform: rotate(-90deg);
+    }
+
+    header .left_menu a:hover {
+        color: #dc1313;
+    }
+
+    header section {
+        width: 97%;
+        height: 90%;
+        /*border: 1px solid greenyellow;*/
+    }
+
+    header section .content {
+        position: relative;
+        left: 370px;
+        margin-top: 10%;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        transition: 1s linear;
+    }
+
+    header section .content h1 {
+        font-size: 40px;
+        transition: 1s linear;
+    }
+
+    header section .content p {
+        font-size: 10px;
+        font-weight: 600;
+        width: 290px;
+        word-break: break-all;
+    }
+
+    header section .content .price_order {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    header section .content .price_order .price h2 {
+        font-size: 20px;
+        color: #dc1313;
+        line-height: 18px;
+    }
+
+    header section .content .price_order .price p {
+        font-size: 5.5px;
+        width: 50px;
+        /*border: 1px solid #000;*/
+    }
+
+    header section .content .price_order a {
+        padding: 4px 20px;
+        background: #121213;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        margin-left: 35px;
+    }
+
+    header section .cards {
+        width: 90%;
+        height: 140px;
+        /*border: 1px solid #000;*/
+        position: relative;
+        top: 20%;
+        padding-left: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: auto;
+        scroll-behavior: smooth;
+        transition: 1s linear;
+    }
+
+    header section .cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    header section .cards .card {
+        position: relative;
+        min-width: 125px;
+        min-height: 125px;
+        border: 1px solid #000;
+        margin-right: 13px;
+        background: #282828;
+        border-radius: 50px 10px 10px 10px;
+    }
+
+    header section .cards .card:nth-last-child(1) {
+        margin-right: 0px;
+    }
+
+    header section .cards .card .dis {
+        width: 50px;
+        position: relative;
+        top: -5px;
+        left: -5px;
+    }
+
+    header section .cards .card h4 {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    header section .cards .card h5 {
+        color: #fff;
+        font-size: 11px;
+        font-family: 500;
+        padding: 0px 10px;
+        margin-top: -8px;
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    header section .cards .card p {
+        color: rgb(203, 203, 203);
+        font-size: 9px;
+        font-weight: 500;
+        padding: 0px 10px;
+    }
+
+    header section .cards .card .rate_cart {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 2px 10px;
+        color: #fff;
+    }
+
+    header section .cards .card .rate_cart h6 {
+        font-size: 10px;
+    }
+
+    header section .cards .card .rate_cart .bi {
+        font-size: 12px;
+    }
+
+    header section .social {
+        position: relative;
+        width: 100%;
+        /*border: 1px solid #000;*/
+        top: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: 1s linear;
+    }
+
+    header section .social .btns {
+        margin-left: 30px;
+    }
+
+    header section .social .btns .bi {
+        font-size: 13px;
+        cursor: pointer;
+        transition: .3s linear;
+    }
+
+    header section .social .btns .bi:hover {
+        color: rgb(0, 0, 0, .5);
+    }
+
+    header section .social .icons{
+        display: flex;
+        align-items: center;
+    }
+
+    header section .social .icons a {
+        font-size: 12px;
+        margin-left: 10px;
+        color: #282828;
+        transition: .3s linear;
+    }
+
+    header section .social .icons a:hover {
+        color: #000;
+    }
+
+    @media screen and (max-width:1260px) {
+        header {
+            width: 83%;
+        }
+    }
+
+    @media screen and (max-width:885px) {
+        header {
+            width: 95%;
+        }
+    }
+
+    @media screen and (max-width:775px) {
+        header .logo {
+            left: 13%;
+        }
+
+        header section .content {
+            left: 340px;
+        }
+
+        header section {
+            width: 92%;
+        }
+    }
+
+    @media screen and (max-width:330px) {
+        header {
+            width: 100%;
+            height: 100%;
+        }
+
+        header nav .right_menu ul li {
+            padding: 3px 6px;
+        }
+    }
+
+    @media screen and (max-width:685px) {
+
+        header nav,
+        .right_menu {
+            position: absolute;
+            top: 20%;
+            flex-direction: column;
+            width: 15px;
+            right: 17px;
+        }
+
+        header nav .right_menu ul li {
+            padding: 30px 10px;
+            transform: rotate(90deg);
+        }
+
+        header section .content {
+            left: 24%;
+            top: 38%;
+        }
+
+        header .logo {
+            left: 30%;
+        }
+
+        header section .cards {
+            top: 43%;
+        }
+
+        header section .social {
+            top: 45%;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        header .logo {
+            left: 20%;
+        }
+
+        header section .content {
+            left: 11%;
+            top: 38%;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        header section .content h1 {
+            font-size: 32px;
+        }
+
+        header section .content p {
+            font-size: 9px;
+            width: 220px;
+        }
+
+        header .logo {
+            width: 200px;
+        }
+
+        header .logo img {
+            width: 245px;
+            margin: 75px 0px 0px -30px;
+        }
+    }
+</style>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>foodbar</h1>
+            <img src="https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2022-03_Herby-Chicken-Grain-Bowls%2F2022-02-22_ATK-2050"
+                alt="" id="poster">
+        </div>
+
+        <nav>
+            <i class="bi bi-list"></i>
+            <div class="right_menu">
+                <ul>
+                    <li><a href="#">shop</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Recipes</a></li>
+                    <li><a href="#">Hotline</a></li>
+                </ul>
+                <div class="user_cart">
+                    <i class="bi bi-cart-dash-fill "></i>
+                    <div class="user">
+                        <img src="https://us.123rf.com/450wm/tuktukdesign/tuktukdesign1608/tuktukdesign160800043/61010830-user-icon-man-profile-businessman-avatar-person-glyph-vector-illustration.jpg?ver=6"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+
+        <div class="left_menu">
+            <a href="#">Process</a>
+            <a href="#">design</a>
+            <a href="#">material</a>
+        </div>
+        <section>
+            <div class="content">
+                <h1 id="title">Thai Chicken</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum adipisci nesciunt porro voluptas
+                    sapiente quis corrupti dolore molestias odio officiis.</p>
+                <div class="price_order">
+                    <div class="price">
+                        <h2 id="price_cont">$38</h2>
+                        <p>total payable</p>
+                    </div>
+                    <a href="#">Order now</a>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <img src="https://www.marionskitchen.com/wp-content/uploads/2022/11/Sichuan-Chilli-Chicken-Noodles-01.jpg"
+                        alt="" class="dis">
+                    <h4>$18</h4>
+                    <h5>chicken noodels</h5>
+                    <p>per plate</p>
+                    <div class="rate_cart">
+                        <h6>5.0</h6>
+                        <i class="bi bi-cart-dash-fill"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.themodernproper.com/billowy-turkey/production/posts/2023/ChickenNuggets_4.jpg?w=960&h=960&q=82&fm=jpg&fit=crop&dm=1680649269&s=63d9a5178bca366746c5ec7dc8bcfc5c"
+                        alt="" class="dis">
+                    <h4>$69</h4>
+                    <h5>chicken nuggets</h5>
+                    <p>per plate</p>
+                    <div class="rate_cart">
+                        <h6>5.0</h6>
+                        <i class="bi bi-cart-dash-fill"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://static.toiimg.com/photo/53241077.cms" alt="" class="dis">
+                    <h4>$45</h4>
+                    <h5> chicken manchurian</h5>
+                    <p>per plate</p>
+                    <div class="rate_cart">
+                        <h6>4.7</h6>
+                        <i class="bi bi-cart-dash-fill"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://1.bp.blogspot.com/-lHJM2CJ1pVQ/XtOxjyL4D1I/AAAAAAAAYis/4_btvPq8Mwg4GE4z9zS4bLPiSISCirQWgCLcBGAsYHQ/s1600/chicken%2Bfry%2Bkerala%2B5.JPG"
+                        alt="" class="dis">
+                    <h4>$35</h4>
+                    <h5>chicken fry</h5>
+                    <p>per plate</p>
+                    <div class="rate_cart">
+                        <h6>5.0</h6>
+                        <i class="bi bi-cart-dash-fill"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://www.recipetineats.com/wp-content/uploads/2020/02/Honey-Garlic-Chicken-Breast_5-SQ.jpg"
+                        alt="" class="dis">
+                    <h4>$49</h4>
+                    <h5>chicken desi fry</h5>
+                    <p>per plate</p>
+                    <div class="rate_cart">
+                        <h6>4.8</h6>
+                        <i class="bi bi-cart-dash-fill"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://hips.hearstapps.com/hmg-prod/images/delish-190522-cilantro-lime-chicken-and-rice-bowl-portrait-046-pf-1-1559073830.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=1200:*"
+                        alt="" class="dis">
+                    <h4>$45</h4>
+                    <h5>chicken bowl</h5>
+                    <p>per plate</p>
+                    <div class="rate_cart">
+                        <h6>4.5</h6>
+                        <i class="bi bi-cart-dash-fill"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://inquiringchef.com/wp-content/uploads/2022/10/Gochujang-Chicken-Rice-Bowls_square-0189.jpg"
+                        alt="" class="dis">
+                    <h4>$35</h4>
+                    <h5>chicken rice bowl</h5>
+                    <p>per plate</p>
+                    <div class="rate_cart">
+                        <h6>4.0</h6>
+                        <i class="bi bi-cart-dash-fill"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="social">
+                <div class="btns">
+                    <i class="bi bi-caret-left-fill"></i>
+                    <i class="bi bi-caret-right-fill"></i>
+
+                </div>
+                <div class="icons">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter"></i></a>
+                </div>
+            </div>
+        </section>
+    </header>
+    <script>
+        let left = document.getElementsByClassName('bi bi-caret-left-fill')[0];
+        let right = document.getElementsByClassName('bi bi-caret-left-fill')[0];
+        let cards = document.getElementsByClassName('cards')[0];
+
+        left.addEventListener('click', () => {
+            cards.scrollLeft -= 140;
+        })
+        right.addEventListener('click', () => {
+            cards.scrollLeft += 140;
+        })
+
+
+        let poster = document.getElementById('poster');
+        let title = document.getElementById('title');
+        let price_cont = document.getElementById('price_cont');
+
+        Array.from(document.getElementsByClassName('card')).forEach((ele, i) => {
+            /*console.log(ele)*/
+            ele.addEventListener('click', () => {
+                poster.src = ele.getElementsByTagName('img')[0].src;
+                title.innerText = ele.getElementsByTagName('h5')[0].innerText;
+                price_cont.innerText = ele.getElementsByTagName('h4')[0].innerText;
+            })
+        })
+    </script>
+</body>
+
+</html>
